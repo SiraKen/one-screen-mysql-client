@@ -45,6 +45,9 @@ namespace OneScreenMySQLClient
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DatabaseNameTextbox = new System.Windows.Forms.TextBox();
             this.DatabaseNameLabel = new System.Windows.Forms.Label();
+            this.QueryTextbox = new System.Windows.Forms.TextBox();
+            this.QueryLabel = new System.Windows.Forms.Label();
+            this.ExecuteQueryButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MainDataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -71,10 +74,10 @@ namespace OneScreenMySQLClient
             // MainDataGridView
             // 
             this.MainDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MainDataGridView.Location = new System.Drawing.Point(12, 338);
+            this.MainDataGridView.Location = new System.Drawing.Point(12, 269);
             this.MainDataGridView.Name = "MainDataGridView";
             this.MainDataGridView.RowTemplate.Height = 25;
-            this.MainDataGridView.Size = new System.Drawing.Size(966, 227);
+            this.MainDataGridView.Size = new System.Drawing.Size(966, 296);
             this.MainDataGridView.TabIndex = 12;
             // 
             // HostnameTextbox
@@ -185,11 +188,41 @@ namespace OneScreenMySQLClient
             this.DatabaseNameLabel.TabIndex = 9;
             this.DatabaseNameLabel.Text = "Database";
             // 
+            // QueryTextbox
+            // 
+            this.QueryTextbox.Location = new System.Drawing.Point(443, 88);
+            this.QueryTextbox.Multiline = true;
+            this.QueryTextbox.Name = "QueryTextbox";
+            this.QueryTextbox.Size = new System.Drawing.Size(387, 88);
+            this.QueryTextbox.TabIndex = 13;
+            // 
+            // QueryLabel
+            // 
+            this.QueryLabel.AutoSize = true;
+            this.QueryLabel.Location = new System.Drawing.Point(443, 67);
+            this.QueryLabel.Name = "QueryLabel";
+            this.QueryLabel.Size = new System.Drawing.Size(39, 15);
+            this.QueryLabel.TabIndex = 14;
+            this.QueryLabel.Text = "Query";
+            // 
+            // ExecuteQueryButton
+            // 
+            this.ExecuteQueryButton.Location = new System.Drawing.Point(443, 183);
+            this.ExecuteQueryButton.Name = "ExecuteQueryButton";
+            this.ExecuteQueryButton.Size = new System.Drawing.Size(75, 23);
+            this.ExecuteQueryButton.TabIndex = 15;
+            this.ExecuteQueryButton.Text = "Execute";
+            this.ExecuteQueryButton.UseVisualStyleBackColor = true;
+            this.ExecuteQueryButton.Click += new System.EventHandler(this.ExecuteQueryButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 590);
+            this.Controls.Add(this.ExecuteQueryButton);
+            this.Controls.Add(this.QueryLabel);
+            this.Controls.Add(this.QueryTextbox);
             this.Controls.Add(this.DatabaseNameTextbox);
             this.Controls.Add(this.DatabaseNameLabel);
             this.Controls.Add(this.statusStrip1);
@@ -233,6 +266,9 @@ namespace OneScreenMySQLClient
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.TextBox DatabaseNameTextbox;
         private System.Windows.Forms.Label DatabaseNameLabel;
+        private System.Windows.Forms.TextBox QueryTextbox;
+        private System.Windows.Forms.Label QueryLabel;
+        private System.Windows.Forms.Button ExecuteQueryButton;
     }
 }
 
