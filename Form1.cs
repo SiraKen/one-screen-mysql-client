@@ -81,7 +81,12 @@ namespace OneScreenMySQLClient
 
             } catch (MySqlException mse)
             {
+                trans.Rollback();
                 MessageBox.Show(mse.Message);
+            }
+            finally
+            {
+                cmd.Connection.Close();
             }
         }
     }
