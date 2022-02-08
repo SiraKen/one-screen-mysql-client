@@ -48,13 +48,19 @@ namespace OneScreenMySQLClient
             this.QueryTextbox = new System.Windows.Forms.TextBox();
             this.QueryLabel = new System.Windows.Forms.Label();
             this.ExecuteQueryButton = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.DatabaseComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.MainDataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ConnectButton
             // 
-            this.ConnectButton.Location = new System.Drawing.Point(70, 192);
+            this.ConnectButton.Location = new System.Drawing.Point(76, 206);
             this.ConnectButton.Name = "ConnectButton";
             this.ConnectButton.Size = new System.Drawing.Size(75, 23);
             this.ConnectButton.TabIndex = 11;
@@ -65,7 +71,7 @@ namespace OneScreenMySQLClient
             // HostnameLabel
             // 
             this.HostnameLabel.AutoSize = true;
-            this.HostnameLabel.Location = new System.Drawing.Point(21, 45);
+            this.HostnameLabel.Location = new System.Drawing.Point(23, 21);
             this.HostnameLabel.Name = "HostnameLabel";
             this.HostnameLabel.Size = new System.Drawing.Size(62, 15);
             this.HostnameLabel.TabIndex = 1;
@@ -73,33 +79,36 @@ namespace OneScreenMySQLClient
             // 
             // MainDataGridView
             // 
+            this.MainDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MainDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MainDataGridView.Location = new System.Drawing.Point(12, 269);
+            this.MainDataGridView.Location = new System.Drawing.Point(3, 3);
             this.MainDataGridView.Name = "MainDataGridView";
             this.MainDataGridView.RowTemplate.Height = 25;
-            this.MainDataGridView.Size = new System.Drawing.Size(966, 296);
+            this.MainDataGridView.Size = new System.Drawing.Size(960, 258);
             this.MainDataGridView.TabIndex = 12;
             // 
             // HostnameTextbox
             // 
-            this.HostnameTextbox.Location = new System.Drawing.Point(123, 42);
+            this.HostnameTextbox.Location = new System.Drawing.Point(125, 18);
             this.HostnameTextbox.Name = "HostnameTextbox";
-            this.HostnameTextbox.Size = new System.Drawing.Size(100, 23);
+            this.HostnameTextbox.Size = new System.Drawing.Size(121, 23);
             this.HostnameTextbox.TabIndex = 2;
             this.HostnameTextbox.Text = "localhost";
             // 
             // PortTextbox
             // 
-            this.PortTextbox.Location = new System.Drawing.Point(123, 71);
+            this.PortTextbox.Location = new System.Drawing.Point(125, 47);
             this.PortTextbox.Name = "PortTextbox";
-            this.PortTextbox.Size = new System.Drawing.Size(100, 23);
+            this.PortTextbox.Size = new System.Drawing.Size(121, 23);
             this.PortTextbox.TabIndex = 4;
             this.PortTextbox.Text = "3307";
             // 
             // PortLabel
             // 
             this.PortLabel.AutoSize = true;
-            this.PortLabel.Location = new System.Drawing.Point(21, 74);
+            this.PortLabel.Location = new System.Drawing.Point(23, 50);
             this.PortLabel.Name = "PortLabel";
             this.PortLabel.Size = new System.Drawing.Size(29, 15);
             this.PortLabel.TabIndex = 3;
@@ -107,16 +116,16 @@ namespace OneScreenMySQLClient
             // 
             // UsernameTextbox
             // 
-            this.UsernameTextbox.Location = new System.Drawing.Point(123, 100);
+            this.UsernameTextbox.Location = new System.Drawing.Point(125, 76);
             this.UsernameTextbox.Name = "UsernameTextbox";
-            this.UsernameTextbox.Size = new System.Drawing.Size(100, 23);
+            this.UsernameTextbox.Size = new System.Drawing.Size(121, 23);
             this.UsernameTextbox.TabIndex = 6;
             this.UsernameTextbox.Text = "example";
             // 
             // UsernameLabel
             // 
             this.UsernameLabel.AutoSize = true;
-            this.UsernameLabel.Location = new System.Drawing.Point(21, 103);
+            this.UsernameLabel.Location = new System.Drawing.Point(23, 79);
             this.UsernameLabel.Name = "UsernameLabel";
             this.UsernameLabel.Size = new System.Drawing.Size(60, 15);
             this.UsernameLabel.TabIndex = 5;
@@ -124,17 +133,17 @@ namespace OneScreenMySQLClient
             // 
             // PasswordTextbox
             // 
-            this.PasswordTextbox.Location = new System.Drawing.Point(123, 129);
+            this.PasswordTextbox.Location = new System.Drawing.Point(125, 105);
             this.PasswordTextbox.Name = "PasswordTextbox";
             this.PasswordTextbox.PasswordChar = '●';
-            this.PasswordTextbox.Size = new System.Drawing.Size(100, 23);
+            this.PasswordTextbox.Size = new System.Drawing.Size(121, 23);
             this.PasswordTextbox.TabIndex = 8;
             this.PasswordTextbox.Text = "example";
             // 
             // PasswordLabel
             // 
             this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Location = new System.Drawing.Point(21, 132);
+            this.PasswordLabel.Location = new System.Drawing.Point(23, 108);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(57, 15);
             this.PasswordLabel.TabIndex = 7;
@@ -173,7 +182,7 @@ namespace OneScreenMySQLClient
             // 
             // DatabaseNameTextbox
             // 
-            this.DatabaseNameTextbox.Location = new System.Drawing.Point(123, 158);
+            this.DatabaseNameTextbox.Location = new System.Drawing.Point(192, 166);
             this.DatabaseNameTextbox.Name = "DatabaseNameTextbox";
             this.DatabaseNameTextbox.Size = new System.Drawing.Size(100, 23);
             this.DatabaseNameTextbox.TabIndex = 10;
@@ -182,7 +191,7 @@ namespace OneScreenMySQLClient
             // DatabaseNameLabel
             // 
             this.DatabaseNameLabel.AutoSize = true;
-            this.DatabaseNameLabel.Location = new System.Drawing.Point(21, 161);
+            this.DatabaseNameLabel.Location = new System.Drawing.Point(23, 137);
             this.DatabaseNameLabel.Name = "DatabaseNameLabel";
             this.DatabaseNameLabel.Size = new System.Drawing.Size(55, 15);
             this.DatabaseNameLabel.TabIndex = 9;
@@ -190,7 +199,7 @@ namespace OneScreenMySQLClient
             // 
             // QueryTextbox
             // 
-            this.QueryTextbox.Location = new System.Drawing.Point(443, 88);
+            this.QueryTextbox.Location = new System.Drawing.Point(540, 70);
             this.QueryTextbox.Multiline = true;
             this.QueryTextbox.Name = "QueryTextbox";
             this.QueryTextbox.Size = new System.Drawing.Size(387, 88);
@@ -199,7 +208,7 @@ namespace OneScreenMySQLClient
             // QueryLabel
             // 
             this.QueryLabel.AutoSize = true;
-            this.QueryLabel.Location = new System.Drawing.Point(443, 67);
+            this.QueryLabel.Location = new System.Drawing.Point(540, 49);
             this.QueryLabel.Name = "QueryLabel";
             this.QueryLabel.Size = new System.Drawing.Size(39, 15);
             this.QueryLabel.TabIndex = 14;
@@ -207,7 +216,7 @@ namespace OneScreenMySQLClient
             // 
             // ExecuteQueryButton
             // 
-            this.ExecuteQueryButton.Location = new System.Drawing.Point(443, 183);
+            this.ExecuteQueryButton.Location = new System.Drawing.Point(540, 165);
             this.ExecuteQueryButton.Name = "ExecuteQueryButton";
             this.ExecuteQueryButton.Size = new System.Drawing.Size(75, 23);
             this.ExecuteQueryButton.TabIndex = 15;
@@ -215,34 +224,68 @@ namespace OneScreenMySQLClient
             this.ExecuteQueryButton.UseVisualStyleBackColor = true;
             this.ExecuteQueryButton.Click += new System.EventHandler(this.ExecuteQueryButton_Click);
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Cursor = System.Windows.Forms.Cursors.HSplit;
+            this.splitContainer1.Location = new System.Drawing.Point(12, 27);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.DatabaseComboBox);
+            this.splitContainer1.Panel1.Controls.Add(this.HostnameLabel);
+            this.splitContainer1.Panel1.Controls.Add(this.ExecuteQueryButton);
+            this.splitContainer1.Panel1.Controls.Add(this.QueryLabel);
+            this.splitContainer1.Panel1.Controls.Add(this.HostnameTextbox);
+            this.splitContainer1.Panel1.Controls.Add(this.QueryTextbox);
+            this.splitContainer1.Panel1.Controls.Add(this.PortLabel);
+            this.splitContainer1.Panel1.Controls.Add(this.PortTextbox);
+            this.splitContainer1.Panel1.Controls.Add(this.DatabaseNameTextbox);
+            this.splitContainer1.Panel1.Controls.Add(this.PasswordLabel);
+            this.splitContainer1.Panel1.Controls.Add(this.ConnectButton);
+            this.splitContainer1.Panel1.Controls.Add(this.DatabaseNameLabel);
+            this.splitContainer1.Panel1.Controls.Add(this.PasswordTextbox);
+            this.splitContainer1.Panel1.Controls.Add(this.UsernameLabel);
+            this.splitContainer1.Panel1.Controls.Add(this.UsernameTextbox);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.MainDataGridView);
+            this.splitContainer1.Size = new System.Drawing.Size(966, 538);
+            this.splitContainer1.SplitterDistance = 246;
+            this.splitContainer1.SplitterWidth = 10;
+            this.splitContainer1.TabIndex = 16;
+            // 
+            // DatabaseComboBox
+            // 
+            this.DatabaseComboBox.FormattingEnabled = true;
+            this.DatabaseComboBox.Location = new System.Drawing.Point(125, 134);
+            this.DatabaseComboBox.Name = "DatabaseComboBox";
+            this.DatabaseComboBox.Size = new System.Drawing.Size(121, 23);
+            this.DatabaseComboBox.TabIndex = 16;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 590);
-            this.Controls.Add(this.ExecuteQueryButton);
-            this.Controls.Add(this.QueryLabel);
-            this.Controls.Add(this.QueryTextbox);
-            this.Controls.Add(this.DatabaseNameTextbox);
-            this.Controls.Add(this.DatabaseNameLabel);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.UsernameTextbox);
-            this.Controls.Add(this.UsernameLabel);
-            this.Controls.Add(this.PasswordTextbox);
-            this.Controls.Add(this.PasswordLabel);
-            this.Controls.Add(this.PortTextbox);
-            this.Controls.Add(this.PortLabel);
-            this.Controls.Add(this.HostnameTextbox);
-            this.Controls.Add(this.MainDataGridView);
-            this.Controls.Add(this.HostnameLabel);
-            this.Controls.Add(this.ConnectButton);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "OneScreenMySQLClient";
             ((System.ComponentModel.ISupportInitialize)(this.MainDataGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,6 +312,8 @@ namespace OneScreenMySQLClient
         private System.Windows.Forms.TextBox QueryTextbox;
         private System.Windows.Forms.Label QueryLabel;
         private System.Windows.Forms.Button ExecuteQueryButton;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ComboBox DatabaseComboBox;
     }
 }
 

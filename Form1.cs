@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 using MySql.Data.MySqlClient;
 
@@ -38,18 +39,51 @@ namespace OneScreenMySQLClient
 
                 // open connection
                 conn.Open();
-                MessageBox.Show("Successfully made the MySQL connection.");
+
+                // get databases
+                using (var connection = new MySqlConnection(connectionString))
+                using (var command = new MySqlCommand())
+                {
+
+                    connection.Open();
+                    MessageBox.Show("Successfully made the MySQL connection.");
+
+                    command.Connection = connection;
+                    command.CommandText = "SHOW DATABASES;";
+                    var reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            var name = reader.GetString(0);
+                            Debug.WriteLine(name);
+                            DatabaseComboBox.DataSource = name;
+                        }
+                    }
+                }
+
+
+
+
+
+
+
+
 
                 // mysql actions below:
                 // table gets data
                 DataTable tbl = new DataTable();
+                ComboBox cmb = new ComboBox();
 
                 // execute query
-                MySqlDataAdapter dataAdp = new MySqlDataAdapter("SELECT * FROM user", conn);
+                MySqlDataAdapter dataAdp = new MySqlDataAdapter("SHOW databases", conn);
+                // dataAdp.Fill(tbl);
                 dataAdp.Fill(tbl);
+                
+                
 
                 // display gridview
-                MainDataGridView.DataSource = tbl;
+                // MainDataGridView.DataSource = tbl;
 
                 // close connection
                 conn.Close();
@@ -57,12 +91,12 @@ namespace OneScreenMySQLClient
             catch (MySqlException mse)
             {
                 // mysql exception
-                MessageBox.Show(mse.Message);
+                MessageBox.Show("MySQL Exception: " + mse.Message);
             }
             catch (AggregateException ae)
             {
                 // application exception
-                MessageBox.Show(ae.Message);
+                MessageBox.Show("Application Exception: " + ae.Message);
             }
         }
 
