@@ -38,9 +38,9 @@ namespace OneScreenMySQLClient
 
                 // open connection
                 conn.Open();
-                MessageBox.Show("Connection Successful.");
+                MessageBox.Show("Successfully made the MySQL connection.");
 
-                // here
+                // mysql actions below:
                 // table gets data
                 DataTable tbl = new DataTable();
 
@@ -56,8 +56,13 @@ namespace OneScreenMySQLClient
             }
             catch (MySqlException mse)
             {
-                // exception error
+                // mysql exception
                 MessageBox.Show(mse.Message);
+            }
+            catch (AggregateException ae)
+            {
+                // application exception
+                MessageBox.Show(ae.Message);
             }
         }
 
